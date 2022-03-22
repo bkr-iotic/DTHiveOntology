@@ -1,0 +1,161 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix uosso: <https://w3id.org/DigiTwin/Sensor#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix iotics:  <http://data.iotics.com/iotics#> .
+@prefix uom: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
+@prefix geosp: <http://www.opengis.net/ont/geosparql#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+# Classes 
+uosso:Accelerometer
+  a rdfs:Class ;
+  rdfs:label "Accelerometer" ;
+  rdfs:comment "comment here" ;
+.
+uosso:ModelType
+  a rdfs:Class;
+  rdfs:label "";
+  rdfs:comment "";
+.
+uosso:SerialNumber
+  a rdfs:Class;
+  rdfs:label "";
+  rdfs:comment "";
+.
+uosso:SensorName
+  a rdfs:Class;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:Coordinates
+  a rdfs:Class ;
+  rdfs:subClassOf geosp:Geometry ;
+  rdfs:label "coordinates in a 3D euclidean space" ;
+  rdfs:comment "coordinates in a 3D euclidean space" ;
+.
+uosso:SensorOrientation
+  a rdfs:Class;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:SensorDirection
+  a rdfs:Class;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:ManufactureURL
+  a rdfs:Class;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:SensorCalibration
+  a rdfs:Class;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:UnitSensitivity
+  a rdfs:Class;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:UnitSensitivityUnits
+  a rdfs:Class;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:BiasVoltage
+  a rdfs:Class;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:Date
+  a rdfs:Class;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+
+
+# Properties of Classes, domain base of link and range tip of arrow. No domain means can be applied to multiple classes
+uosso:hasModelType
+  a rdf:property;
+  rdfs:domain uosso:Accelerometer;
+  rdfs:range uosso:ModelType;
+  rdfs:label "";
+  rdfs:comment "";
+.
+uosso:hasSerialNumber
+  a rdf:property;
+  rdfs:domain uosso:Accelerometer;
+  rdfs:range uosso:SerialNumber;
+  rdfs:label "";
+  rdfs:comment "";
+.
+uosso:hasSensorName
+  a rdf:property;
+  rdfs:domain uosso:Accelerometer;
+  rdfs:range uosso:SensorName;
+  rdfs:label "";
+  rdfs:comment "";
+.
+uosso:hasLocation
+  a rdf:property;
+  rdfs:range uosso:Coordinates;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:hasOrientation
+  a rdf:property;
+  rdfs:range uosso:SensorOrientation;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:hasDirection
+  a rdf:property;
+  rdfs:range uosso:SensorDirection;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:hasURL
+  a rdf:property;
+  rdfs:domain uosso:ModelType;
+  rdfs:range uosso:ManufactureURL;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:hasCalibration
+  a rdf:property;
+  rdfs:domain uosso:Accelerometer;
+  rdfs:range uosso:SensorCalibration;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:hasSensitivity
+  a rdf:property;
+  rdfs:domain uosso:SensorCalibration;
+  rdfs:range uosso:UnitSensitivity;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:hasSensitivityUnits
+  a rdf:property;
+  rdfs:domain uosso:SensorCalibration;
+  rdfs:range uosso:UnitSensitivityUnits;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:hasCalibrationDate
+  a rdf:property;
+  rdfs:domain uosso:SensorCalibration;
+  rdfs:range uosso:Date;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+uosso:hasBiasVoltage
+  a rdf:property;
+  rdfs:domain uosso:SensorCalibration;
+  rdfs:range uosso:BiasVoltage;
+  rdfs:label "";
+  rdfs:comment "";
+.  
+
