@@ -22,7 +22,8 @@ uostr:TestType
 .
 
 uostr:SingleShakerExcitationTest
-  a rdfs:TestType ;
+  a rdfs:Class ;
+  rdfs:subClassOf uostr:TestType ;
   rdfs:label "A test using a single shaker." ;
   rdfs:comment "A test with only one mechanical shaker to excite the structure." ;
 .
@@ -45,18 +46,6 @@ uostr:SineSwept
   rdfs:comment "A single shaker test with a single frequency excitation, whose excitatation frequency changes as a function of time." ;
 .
 
-uostr:AmplificationLevel
-  a rdfs:Class ;
-  rdfs:label "Amplification Level" ;
-  rdfs:comment "The amplification level of the electric signal between the signal source and the mechanical shaker(e.g.: 35%)" ;
-.
-
-uostr:Bandwidth
-  a rdfs:Class ;
-  rdfs:label "Frequency range of FRF";
-  rdfs:comment "Specification of the range of frequencies of interest. Partially used to automatically determine sampling parameters" ;
-.
-
 uostr:AddedMass
   a rdfs:Class ;
   rdfs:label "The added-on-the-structure mass during the run." ;
@@ -73,18 +62,6 @@ uostr:MassArray
   a rdfs:Class ;
   rdfs:label "Array of added masses during a run." ;
   rdfs:comment "Array of masses in kg" ;
-.
-
-uostr:SpectralLines
-  a rdfs:Class ;
-  rdfs:label "Resolution of FRF" ;
-  rdfs:comment "Determines the frequency resolution of the frequency response via number of samples between 0 Hz and half the Nyquist frequency" ;
-.
-
-uostr:NumberOfAverages
-  a rdfs:Class ;
-  rdfs:label "Averages of FRF" ;
-  rdfs:comment "Number of windows for FRF within singular run.";
 .
 
 uostr:ControlFramework
@@ -105,18 +82,6 @@ uostr:OpenLoopControlFramework
   rdfs:comment "A control framework that uses a pre-determined signal to excite the system." ;
 .
 
-uostr:RepetitionIndex
-  a rdfs:Class ;
-  rdfs:label "Identifier of repetition number" ;
-  rdfs:comment "Index of tests repetition with the same experimental configuration." ;
-.
-
-uostr:AdditionalNotes
-  a rdfs:Class ;
-  rdfs:label "Additional notes made by the tester" ;
-  rdfs:comment "Additional notes made by the tester for events or other potential issues during the test." ;
-.
-
 # Properties of Classes, domain base of link and range tip of arrow. No domain means can be applied to multiple classes
 uostr:hasTestType
   a rdf:property;
@@ -128,14 +93,14 @@ uostr:hasTestType
 uostr:hasAmplificationLevel
   a rdf:property ;
   rdfs:domain uostr:TestRun ;
-  rdfs:range uostr:AmplificationLevel ;
-  rdfs:label "Power amplification from LMS to Shaker" ;
+  rdfs:range xsd:float ;
+  rdfs:label "Power amplification from LMS to Shaker (percentage)" ;
 .
 
 uostr:hasBandwidth
   a rdf:property ;
   rdfs:domain uostr:TestRun ;
-  rdfs:range uostr:Bandwidth ;
+  rdfs:range xsd:float ;
   rdfs:label "Frequency Bandwidth" ;
 .
 
@@ -163,14 +128,14 @@ uostr:hasMassValues
 uostr:hasSpectralLines
   a rdf:property;
   rdfs:domain uostr:TestRun ;
-  rdfs:range uostr:SpectralLines;
+  rdfs:range xsd:integer;
   rdfs:label "Number of frequencies in FRF";
 .
 
 uostr:hasNumberOfAverages
   a rdf:property;
   rdfs:domain uostr:TestRun ;
-  rdfs:range uostr:NumberOfAverages;
+  rdfs:range xsd:integer;
   rdfs:label "Number of FRF windows for averaging";
 .
 
@@ -184,13 +149,13 @@ uostr:hasControlFramework
 uostr:hasRepetitionIndex
   a rdf:property;
   rdfs:domain uostr:TestRun ;
-  rdfs:range uostr:RepetitionIndex;
+  rdfs:range xsd:integer;
   rdfs:label "Set index for repetitions";
 .
 
 uostr:hasAdditionalNotes
   a rdf:property;
   rdfs:domain uostr:TestRun ;
-  rdfs:range uostr:AdditionalNotes;
+  rdfs:range xsd:string;
   rdfs:label "Added Notes";
 .
