@@ -9,7 +9,7 @@
 
 # Classes
 
-uostr:Run
+uostr:TestRun
   a rdfs:Class ;
   rdfs:label "A single run of experiments." ;
   rdfs:comment "An experimental run with a specific experimental configuration." ;
@@ -21,26 +21,26 @@ uostr:TestType
   rdfs:comment "Type of test regarding the excitation force used." ;
 .
 
-uostr:SingeShakerExcitationTest
+uostr:SingleShakerExcitationTest
   a rdfs:TestType ;
   rdfs:label "A test using a single shaker." ;
   rdfs:comment "A test with only one mechanical shaker to excite the structure." ;
 .
 
 uostr:BurstRandom
-  a uostr:SingeShakerExcitationTest;
+  a uostr:SingleShakerExcitationTest;
   rdfs:label "A test using a burst random excitation." ;
   rdfs:comment "A single shaker test, whose excitatation force is a burst random excitation." ;
 .
 
 uostr:ContinuousRandom
-  a uostr:SingeShakerExcitationTest ;
+  a uostr:SingleShakerExcitationTest ;
   rdfs:label "A test using a continuous random excitation." ;
   rdfs:comment "A single shaker test, whose excitatation force is a continuously random signal also known as white-noise or pseudo-random excitation." ;
 .
 
 uostr:SineSwept
-  a uostr:SingeShakerExcitationTest ;
+  a uostr:SingleShakerExcitationTest ;
   rdfs:label "A test using a sine swept excitation." ;
   rdfs:comment "A single shaker test with a single frequency excitation, whose excitatation frequency changes as a function of time." ;
 .
@@ -69,7 +69,7 @@ uostr:CoordinatesArray
   rdfs:comment "Coordinates in a 3D euclidean space" ;
 .
 
-uostr:MasssArray
+uostr:MassArray
   a rdfs:Class ;
   rdfs:label "Array of added masses during a run." ;
   rdfs:comment "Array of masses in kg" ;
@@ -126,7 +126,7 @@ uostr:hasTestType
 .
 
 uostr:hasAmplificationLevel
-  a rdfs:property ;
+  a rdf:property ;
   rdfs:domain uostr:TestRun ;
   rdfs:range uostr:AmplificationLevel ;
   rdfs:label "Power amplification from LMS to Shaker" ;
