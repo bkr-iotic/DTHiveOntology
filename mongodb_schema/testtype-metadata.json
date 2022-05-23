@@ -1,0 +1,276 @@
+{
+    "testtype": {
+        "bsonType": "object",
+        "title": "testing parameters",
+        "description": "Description of the testing parameters/meta-data",
+        "required": [
+            "excitation",
+            "amplification",
+            "bandwidth",
+            "spectrallines",
+            "averages",
+            "control",
+            "repetition"
+        ],
+        "properties": {
+            "excitation": {
+                "bsonType": "object",
+                "title": "excitation parameters",
+                "description": "Description of the excitiation inputs",
+                "required": [
+                    "type",
+                    "outputLevel"
+                ],
+                "properties": {
+                    "type": {
+                        "bsonType": "string",
+                        "title": "excitation type",
+                        "description": "Description of the excitation type",
+                        "enum": [
+                            "sineSwept",
+                            "burstRandom",
+                            "continuousRandom",
+                            "other"
+                        ]
+                    },
+                    "outputLevel": {
+                        "bsonType": "double",
+                        "title": "DAQ output level",
+                        "description": "Output voltage from DAQ system in V"
+                    },
+                    "parameters": {
+                        "bsonType": "object",
+                        "title": "excitation specific parameters",
+                        "description": "Parameters for the specified excitation type",
+                        "properties": {
+                            "fmin": {
+                                "bsonType": "double",
+                                "title": "minimum frequency",
+                                "description": "Minimum frequency of sineSwept"
+                            },
+                            "fmax": {
+                                "bsonType": "double",
+                                "title": "maximum frequency",
+                                "description": "Maximum frequency of sineSwept"
+                            },
+                            "sweep": {
+                                "bsonType": "object",
+                                "title": "sweeping parameters",
+                                "description": "Parameters specific for sineSwept",
+                                "properties": {
+                                    "direction": {
+                                        "bsonType": "string",
+                                        "title": "sineSwept direction",
+                                        "description": "Direction of sweep for sineSwept",
+                                        "enum": [
+                                            "up",
+                                            "down",
+                                            "other"
+                                        ]
+                                    },
+                                    "rate": {
+                                        "bsonType": "double",
+                                        "title": "rate of frequency change",
+                                        "description": "Rate of change for sineSwept"
+                                    },
+                                    "rateUnits": {
+                                        "bsonType": "string",
+                                        "title": "units of rate",
+                                        "description": "Units associated with rate of change for sineSwept",
+                                        "enum": [
+                                            "Hz/s",
+                                            "mHz/s",
+                                            "kHz/s",
+                                            "rad/s/s",
+                                            "1/s",
+                                            "1/ms",
+                                            "other"
+                                        ]
+                                    },
+                                    "type": {
+                                        "bsonType": "string",
+                                        "title": "type of sweep",
+                                        "description": "Description of the type of sweep",
+                                        "enum": [
+                                            "linear",
+                                            "logrithmic",
+                                            "exponential",
+                                            "other"
+                                        ]
+                                    }
+                                }
+                            },
+                            "freqencyUnits": {
+                                "bsonType": "string",
+                                "title": "frequency units",
+                                "descriptions": "Units for frequency parameters",
+                                "enum": [
+                                    "Hz",
+                                    "mHz",
+                                    "kHz",
+                                    "rad/s",
+                                    "other"
+                                ]
+                            }
+                        }
+                    }
+                }
+            },
+            "amplification": {
+                "bsonType": "object",
+                "title": "external amplification",
+                "description": "Amplification of DAQ output before shaker",
+                "required": [
+                    "value",
+                    "units"
+                ],
+                "properties": {
+                    "value": {
+                        "bsonType": "double",
+                        "title": "amplification value",
+                        "description": "Value of external amplification"
+                    },
+                    "units": {
+                        "bsonType": "string",
+                        "title": "amplifcation units",
+                        "description": "Units of amplification",
+                        "enum": [
+                            "percentage",
+                            "V/V",
+                            "V/mV",
+                            "other"
+                        ]
+                    }
+                }
+            },
+            "bandwidth": {
+                "bsonType": "object",
+                "title": "frequency bandwidth",
+                "description": "Valid frequency bandwidth",
+                "required": [
+                    "value",
+                    "units"
+                ],
+                "properties": {
+                    "value": {
+                        "bsonType": "double",
+                        "title": "bandwidth value",
+                        "description": "Value of frequency bandwidth"
+                    },
+                    "units": {
+                        "bsonType": "string",
+                        "title": "bandwidth units",
+                        "description": "Units for bandwidth",
+                        "enum": [
+                            "Hz",
+                            "kHz",
+                            "MHz",
+                            "rad/s",
+                            "other"
+                        ]
+                    }
+                }
+            },
+            "spectrallines": {
+                "bsonType": "int",
+                "title": "spectral lines",
+                "description": "Number of spectral lines in frequency domain"
+            },
+            "averages": {
+                "bsonType": "int",
+                "title": "number of averages",
+                "description": "Number of averages used in frequency domain"
+            },
+            "control": {
+                "bsonType": "string",
+                "title": "control type",
+                "desscription": "Identification of control scheme",
+                "enum": [
+                    "openLoop",
+                    "closedLoop",
+                    "other"
+                ]
+            },
+            "repetition": {
+                "bsonType": "int",
+                "title": "repetition number",
+                "description": "Repetition index for repeated tests"
+            },
+            "testingNotes": {
+                "bsonType": "string",
+                "title": "additional notes",
+                "description": "Additional notes provided by tester during the test"
+            },
+            "additionalMass": {
+                "bsonType": "array",
+                "title": "additional mass",
+                "description": "Identification of added additional mass",
+                "minItems": 0,
+                "items": {
+                    "bsonType": "object",
+                    "required": [
+                        "value",
+                        "units",
+                        "location"
+                    ],
+                    "properties": {
+                        "value": {
+                            "bsonType": "double",
+                            "title": "mass value",
+                            "description": "Value of added mass"
+                        },
+                        "units": {
+                            "bsonType": "string",
+                            "title": "mass units",
+                            "description": "Units of added mass",
+                            "enum": [
+                                "kg",
+                                "g",
+                                "tonne",
+                                "other"
+                            ]
+                        },
+                        "location": {
+                            "bsonType": "object",
+                            "title": "mass location",
+                            "description": "Location of the added mass",
+                            "required": [
+                                "X",
+                                "Y",
+                                "units"
+                            ],
+                            "properties": {
+                                "X": {
+                                    "bsonType": "double",
+                                    "title": "X location",
+                                    "description": "X component of added mass location"
+                                },
+                                "Y": {
+                                    "bsonType": "double",
+                                    "title": "Y location",
+                                    "description": "Y component of added mass location"
+                                },
+                                "Z": {
+                                    "bsonType": "double",
+                                    "title": "Z location",
+                                    "description": "Z component of added mass location"
+                                },
+                                "units": {
+                                    "bsonType": "string",
+                                    "title": "location units",
+                                    "description": "Units for added mass location",
+                                    "enum": [
+                                        "m",
+                                        "cm",
+                                        "km",
+                                        "other"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

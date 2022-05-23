@@ -1,0 +1,25 @@
+{
+    "version": "1.0.0",
+    "testname": "TestJSON",
+    "timestamp": "1653051620",
+    "channelData": [
+        {
+            "name": "Sensor1",
+            "type": "accelerometer",
+            "value": 1.56,
+            "units": "g"
+        },
+        {
+            "name": "Sensor2",
+            "type": "accelerometer",
+            "value": 6.34,
+            "units": "g"
+        },
+        {
+            "name": "Force1",
+            "type": "load",
+            "value": 10.5,
+            "units": "N"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://github.com/Digital-Twin-Operational-Platform/DTHiveOntology/structure-data.json",
+    "bsonType": "object",
+    "title": "RAF T1A Hawk Schema: base structure",
+    "description": "a JSON schema for time-history based data for DTHive/DigiTwin",
+    "required": [
+        "version",
+        "testname",
+        "timestamp"
+    ],
+    "properties": {
+        "version": {
+            "bsonType": "string",
+            "title": "version number",
+            "description": "the version of the schema that the document is compliant to",
+            "enum": [
+                "1.0.0"
+            ]
+        },
+        "testname": {
+            "bsonType": "string",
+            "title": "test name",
+            "description": "the unique test name for experimental testing",
+            "minLength": 1
+        },
+        "timestamp": {
+            "bsonType": "long",
+            "title": "UTC date",
+            "description": "the timestamp of when the data was recorded, stored in nanoseconds since UNIX epoch"
+        },
+        "channelData": {
+            "$ref": "channel-data.json"
+        },
+        "testype": {
+            "$ref": "testtype-metadata.json"
+        },
+        "sensorData": {
+            "$ref": "sensordata-metadata.json"
+        }
+    }
+}
