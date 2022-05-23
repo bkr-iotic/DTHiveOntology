@@ -15,60 +15,62 @@ uostr:TestRun
 .
 
 uostr:TestType
-  a uostr:TestRun ;
+  a rdfs:Class ;
   rdfs:label "Type of test" ;
   rdfs:comment "Type of test regarding the excitation force used." ;
 .
 
-uostr:SingeShakerExcitationTest
-  a uostr:TestType ;
+uostr:SingleShakerExcitationTest
+  a rdfs:Class ;
+  rdfs:subClassOf uostr:TestType ;
   rdfs:label "A test using a single shaker." ;
   rdfs:comment "A test with only one mechanical shaker to excite the structure." ;
 .
 uostr:MultipleShakerExcitationTest
-  a uostr:TestType ;
+  a rdfs:Class ;
+  rdfs:subClassOf uostr:TestType ;
   rdfs:label "A test using multiple shaker." ;
   rdfs:comment "A test with more than one mechanical shaker to excite the structure." ;
 .
 
 uostr:BurstRandom
-  a uostr:SingeShakerExcitationTest;
+  a uostr:SingleShakerExcitationTest;
   rdfs:label "A test using a burst random excitation." ;
   rdfs:comment "A single shaker test, whose excitatation force is a burst random excitation." ;
 .
 
 uostr:ContinuousRandom
-  a uostr:SingeShakerExcitationTest ;
+  a uostr:SingleShakerExcitationTest ;
   rdfs:label "A test using a continuous random excitation." ;
   rdfs:comment "A single shaker test, whose excitatation force is a continuously random signal also known as white-noise or pseudo-random excitation." ;
 .
 
 uostr:SineSwept
-  a uostr:SingeShakerExcitationTest ;
+  a uostr:SingleShakerExcitationTest ;
   rdfs:label "A test using a sine swept excitation." ;
   rdfs:comment "A single shaker test with a single frequency excitation, whose excitatation frequency changes as a function of time." ;
 .
 
 uostr:AddedMass
-  a uostr:TestRun ;
+  a rdfs:Class ;
   rdfs:label "The added-on-the-structure mass during the run." ;
   rdfs:comment "The value and position of the mass, which was added on the structure during the run, often in order to immitate the existence of damage or nonlinearity." ;
 .
 
 uostr:CoordinatesArray
-  a uostr:AddedMass ;
+  a rdfs:Class ;
   rdfs:label "Array of coordinates in a 3D euclidean space" ;
   rdfs:comment "Coordinates in a 3D euclidean space" ;
 .
 
-uostr:MasssArray
-  a uostr:AddedMass ;
+uostr:MassArray
+  a rdfs:Class ;
   rdfs:label "Array of added masses during a run." ;
   rdfs:comment "Array of masses in kg" ;
 .
 
 uostr:ControlFramework
-  a uostr:TestRun ;
+  a rdfs:Class ;
   rdfs:label "Control of shaker output in frequency domain" ;
   rdfs:comment "The control framework used to control the mechanical shaker during the run." ;
 .
@@ -96,14 +98,14 @@ uostr:hasTestType
 uostr:hasAmplificationLevel
   a rdf:property ;
   rdfs:domain uostr:TestRun ;
-  rdfs:range xsd:numeric ;
+  rdfs:range xsd:float ;
   rdfs:label "Power amplification from LMS to Shaker" ;
 .
 
 uostr:hasBandwidth
   a rdf:property ;
   rdfs:domain uostr:TestRun ;
-  rdfs:range xsd:numeric ;
+  rdfs:range xsd:float ;
   rdfs:label "Frequency Bandwidth" ;
 .
 
@@ -131,7 +133,7 @@ uostr:hasMassValues
 uostr:hasSpectralLines
   a rdf:property;
   rdfs:domain uostr:TestRun ;
-  rdfs:range xsd:numeric;
+  rdfs:range xsd:integer;
   rdfs:label "Number of frequencies in FRF";
 .
 
