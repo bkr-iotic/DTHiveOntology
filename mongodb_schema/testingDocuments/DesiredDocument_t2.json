@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
-    "testname": "TestJSON",
-    "timestamp": "1653051620",
+    "testName": "TestJSON",
+    "timeStamp": "1653051620",
     "channelData": [
         {
             "name": "Sensor1",

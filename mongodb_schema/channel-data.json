@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
-    "id": "https://github.com/Digital-Twin-Operational-Platform/DTHiveOntology/channel-data.json",
+    "id": "https://github.com/dynamics-research-group/pbshm-schema/channel-data.json",
     "definitions": {
         "channelBaseObject": {
             "bsonType": "object",

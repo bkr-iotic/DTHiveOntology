@@ -1,22 +1,24 @@
 {
     "version": "1.0.0",
-    "testname": "TestJSON",
-    "timestamp": "1653051619",
-    "testtype": {
+    "testName": "TestJSON",
+    "timeStamp": "1653051619",
+    "testType": {
         "excitation": {
             "type": "sineSwept",
+            "outputLevel": 0.4,
             "parameters": {
-                "fmin": 3.0,
-                "fmax": 30.0,
-                "sweep":{
-                    "direction":"up",
-                    "rate":0.1,
-                    "rateUnits":"Hz/s",
-                    "type":"linear"
+                "frequency": {
+                    "min": 3.0,
+                    "max": 30.0,
+                    "units": "Hz"
                 },
-                "freqencyUnits": "Hz"
-            },
-            "outputLevel":0.4
+                "sweep": {
+                    "direction": "up",
+                    "rate": 0.1,
+                    "rateUnits": "Hz/s",
+                    "type": "linear"
+                }
+            }
         },
         "amplification": {
             "value": 50.0,
@@ -26,7 +28,7 @@
             "value": 30.0,
             "units": "Hz"
         },
-        "spectralines": 512,
+        "spectralLines": 512,
         "averages": 3,
         "control": "openLoop",
         "repetition": 2,
@@ -57,54 +59,54 @@
     "sensorData": [
         {
             "name": "Sensor1",
-            "model":"352C04",
-            "manufacturer":"PCB",
-            "calibration":{
-                "gain":10.0,
-                "units":"mV/g",
-                "date":"8 June 2012"
+            "model": "352C04",
+            "assetNumber": "56C123",
+            "manufacturer": "PCB",
+            "calibration": {
+                "gain": 10.0,
+                "units": "mV/g",
+                "date": "8 June 2012"
             },
             "location": {
                 "X": 1.9,
                 "Y": 1.1,
                 "Z": -1.8,
                 "units": "m"
-            },
-            "assetNumber":"56C123"
+            }
         },
         {
             "name": "Sensor2",
-            "model":"352C04",
-            "manufacturer":"PCB",
-            "calibration":{
-                "gain":10.0,
-                "units":"mV/g",
-                "date":"8 June 2012"
+            "model": "352C04",
+            "assetNumber": "56C098",
+            "manufacturer": "PCB",
+            "calibration": {
+                "gain": 10.0,
+                "units": "mV/g",
+                "date": "8 June 2012"
             },
             "location": {
                 "X": 1.1,
                 "Y": 1.1,
                 "Z": 1.8,
                 "units": "m"
-            },
-            "assetNumber":"56C098"
+            }
         },
         {
             "name": "Force1",
-            "model":"1204-12A",
-            "manufacturer":"PCB",
-            "calibration":{
-                "gain":4.0,
-                "units":"mV/N",
-                "date":"8 June 2012"
+            "model": "1204-12A",
+            "assetNumber": "12B893",
+            "manufacturer": "PCB",
+            "calibration": {
+                "gain": 4.0,
+                "units": "mV/N",
+                "date": "8 June 2012"
             },
             "location": {
                 "X": 0,
                 "Y": 0,
                 "Z": 0,
                 "units": "m"
-            },
-            "assetNumber":"12B893"
+            }
         }
     ]
 }

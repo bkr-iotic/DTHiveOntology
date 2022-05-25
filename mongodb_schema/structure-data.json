@@ -18,13 +18,13 @@
                 "1.0.0"
             ]
         },
-        "testname": {
+        "testName": {
             "bsonType": "string",
             "title": "test name",
             "description": "the unique test name for experimental testing",
             "minLength": 1
         },
-        "timestamp": {
+        "timeStamp": {
             "bsonType": "long",
             "title": "UTC date",
             "description": "the timestamp of when the data was recorded, stored in nanoseconds since UNIX epoch"
@@ -32,7 +32,7 @@
         "channelData": {
             "$ref": "channel-data.json"
         },
-        "testype": {
+        "testType": {
             "$ref": "testtype-metadata.json"
         },
         "sensorData": {

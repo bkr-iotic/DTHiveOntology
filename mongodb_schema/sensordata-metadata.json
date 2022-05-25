@@ -1,108 +1,140 @@
 {
-    "sensorData": {
-        "bsonType": "array",
-        "title": "sensor array information",
-        "description": "Information regarding the sensors used in experiment",
-        "items": {
-            "bsonType": "object",
-            "title": "sensor description",
-            "description": "Information regarding specific sensor used",
-            "required": [
-                "name",
-                "model",
-                "calibration",
-                "location",
-                "assetNumber"
-            ],
-            "properties": {
-                "name": {
-                    "bsonType": "string",
-                    "title": "sensor name",
-                    "description": "Unique name of sensor"
-                },
-                "model": {
-                    "bsonType": "string",
-                    "title": "sensor model",
-                    "description": "Model number of sensor"
-                },
-                "manufacturer": {
-                    "bsonType": "string",
-                    "title": "sensor manufacturer",
-                    "description": "Manufacturer of sensor"
-                },
-                "assetNumber": {
-                    "bsonType": "string",
-                    "title": "sensor serial number",
-                    "description": "Unique asset number or serial number of sensor"
-                },
-                "calibration": {
-                    "bsonType": "object",
-                    "title": "calibration information",
-                    "description": "Information regarding the current sensor calibration",
-                    "required": [
-                        "gain",
-                        "units",
-                        "date"
-                    ],
-                    "properties": {
-                        "gain": {
-                            "bsonType": "double",
-                            "title": "sensor gain",
-                            "description": "Electrical gain of the sensor"
-                        },
-                        "units": {
-                            "bsonType": "string",
-                            "title": "gain units",
-                            "description": "Units for electrical gain of the sensor",
-                            "enum": [
-                                "mV/g",
-                                "mV/m/s/s",
-                                "other"
-                            ]
-                        },
-                        "date": {
-                            "bsonType": "string",
-                            "title": "calibration date",
-                            "description": "Date of last calibration"
-                        }
+    "bsonType": "array",
+    "title": "sensor array information",
+    "description": "Information regarding the sensors used in experiment",
+    "items": {
+        "bsonType": "object",
+        "title": "sensor description",
+        "description": "Information regarding specific sensor used",
+        "required": [
+            "name",
+            "model",
+            "assetNumber",
+            "calibration",
+            "location"
+        ],
+        "properties": {
+            "name": {
+                "bsonType": "string",
+                "minLength": 1,
+                "title": "sensor name",
+                "description": "Unique name of sensor"
+            },
+            "model": {
+                "bsonType": "string",
+                "minLength": 1,
+                "title": "sensor model",
+                "description": "Model number of sensor"
+            },
+            "manufacturer": {
+                "bsonType": "string",
+                "minLength": 1,
+                "title": "sensor manufacturer",
+                "description": "Manufacturer of sensor"
+            },
+            "assetNumber": {
+                "bsonType": "string",
+                "minLength": 1,
+                "title": "sensor serial number",
+                "description": "Unique asset number or serial number of sensor"
+            },
+            "calibration": {
+                "bsonType": "object",
+                "title": "calibration information",
+                "description": "Information regarding the current sensor calibration",
+                "required": [
+                    "gain",
+                    "units",
+                    "date"
+                ],
+                "properties": {
+                    "gain": {
+                        "oneOf": [
+                            {
+                                "bsonType": "int",
+                                "minimum": 0
+                            },
+                            {
+                                "bsonType": "double",
+                                "minimum": 0.0
+                            }
+                        ],
+                        "title": "sensor gain",
+                        "description": "Electrical gain of the sensor"
+                    },
+                    "units": {
+                        "bsonType": "string",
+                        "title": "gain units",
+                        "description": "Units for electrical gain of the sensor",
+                        "enum": [
+                            "mV/g",
+                            "mV/m/s/s",
+                            "other"
+                        ]
+                    },
+                    "date": {
+                        "bsonType": "date",
+                        "title": "calibration date",
+                        "description": "Date of last calibration"
                     }
-                },
-                "location": {
-                    "bsonType": "object",
-                    "title": "sensor location",
-                    "description": "Location of the sensor",
-                    "required": [
-                        "X",
-                        "Y",
-                        "units"
-                    ],
-                    "properties": {
-                        "X": {
-                            "bsonType": "double",
-                            "title": "X location",
-                            "description": "X component of sensor location"
-                        },
-                        "Y": {
-                            "bsonType": "double",
-                            "title": "Y location",
-                            "description": "Y component of sensor location"
-                        },
-                        "Z": {
-                            "bsonType": "double",
-                            "title": "Z location",
-                            "description": "Z component of sensor location"
-                        },
-                        "units": {
-                            "bsonType": "string",
-                            "title": "location units",
-                            "description": "Units for sensor location",
-                            "enum": [
-                                "m",
-                                "cm",
-                                "km",
-                                "other"
-                            ]
-                        }
+                }
+            },
+            "location": {
+                "bsonType": "object",
+                "title": "sensor location",
+                "description": "Location of the sensor",
+                "required": [
+                    "X",
+                    "Y",
+                    "units"
+                ],
+                "properties": {
+                    "X": {
+                        "oneOf": [
+                            {
+                                "bsonType": "int"
+                            },
+                            {
+                                "bsonType": "double"
+                            }
+                        ],
+                        "title": "X location",
+                        "description": "X component of sensor location"
+                    },
+                    "Y": {
+                        "oneOf": [
+                            {
+                                "bsonType": "int"
+                            },
+                            {
+                                "bsonType": "double"
+                            }
+                        ],
+                        "title": "Y location",
+                        "description": "Y component of sensor location"
+                    },
+                    "Z": {
+                        "oneOf": [
+                            {
+                                "bsonType": "int"
+                            },
+                            {
+                                "bsonType": "double"
+                            }
+                        ],
+                        "title": "Z location",
+                        "description": "Z component of sensor location"
+                    },
+                    "units": {
+                        "bsonType": "string",
+                        "title": "location units",
+                        "description": "Units for sensor location",
+                        "enum": [
+                            "m",
+                            "cm",
+                            "km",
+                            "other"
+                        ]
                     }
                 }
             }
